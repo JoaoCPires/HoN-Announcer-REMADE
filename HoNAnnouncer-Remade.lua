@@ -91,13 +91,13 @@ local onEvent = function(self, event, ...)
 	local hasRegen = hasRegen()
 	local hasBerserk = hasBerserk()
 	if hasRegen and not hasPlayedRegenSound then
-		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\powerup_regeneration.ogg", "Master")
+		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\powerup_regeneration.ogg", "Master")
 		hasPlayedRegenSound = true
 	elseif not hasRegen then
 		hasPlayedRegenSound = false
 	end
 	if hasBerserk and not hasPlayedBerserking then
-		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\powerup_doubledamage.ogg", "Master")
+		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\powerup_doubledamage.ogg", "Master")
 		hasPlayedBerserking = true
 	elseif not hasBerserk then
 		hasPlayedBerserking = false
@@ -126,13 +126,13 @@ function HoNAnnouncer:PLAYER_DEAD()
 	killStreak = 0
 	hasBerserking = false
 	hasRegeneration = false
-	PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\defeat.ogg", "Master")
+	PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\defeat.ogg", "Master")
 end
 
 function HoNAnnouncer:ZONE_CHANGED_NEW_AREA()
 	local zoneText = GetZoneText();
 	if (zoneText == ARENA_TP or zoneText == BG_DG or zoneText == BG_SLVSM or zoneText == BG_TOK or zoneText == ARENA_TOL or zoneText == BG_TP or zoneText == BG_BFG or zoneText == WORLD_TB or zoneText == WORLD_WG or zoneText == BG_AB or zoneText == BG_WG or zoneText == BG_WGA or zoneText == BG_WGH or zoneText == BG_EOTS or zoneText == BG_AV or zoneText == BG_IOC or zoneText == BG_SOTA or zoneText == ARENA_LORD or zoneText == ARENA_NAGRAND or zoneText == ARENA_BEM or zoneText == ARENA_DAL or zoneText == ARENA_ROV or zoneText == BG_SHORE) then
-		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\startgame.ogg", "Master")
+		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\startgame.ogg", "Master")
 	end
 	killStreak = 0
 end
@@ -146,13 +146,13 @@ function HoNAnnouncer:COMBAT_LOG_EVENT_UNFILTERED(event, eventType, hideCaster, 
 			multiKill = 1
 		end
 		if (UnitHealth("player") / UnitHealthMax("player") * 100 <= 5) and (UnitHealth("player") > 1) then
-			PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\smackdown.ogg", "Master")
+			PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\smackdown.ogg", "Master")
 		end
 		killTime = now
 		killStreak = killStreak + 1
 		
 		-- PlaySounds
-		local path = "Interface\\AddOns\\HoNAnnouncer\\sounds\\%s.ogg"
+		local path = "Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\%s.ogg"
 		local multiKillLocation = multiSounds[math.min(4, multiKill)]
 		local killSpreeLocation = spreeSounds[math.min(11, killStreak)]
 
@@ -170,9 +170,9 @@ function HoNAnnouncer:COMBAT_LOG_EVENT_UNFILTERED(event, eventType, hideCaster, 
 	
 	end
 	if eventType == "SPELL_CAST_SUCCESS" and hasFlag(sourceFlags, COMBATLOG_OBJECT_TARGET) and hasFlag(sourceFlags, COMBATLOG_OBJECT_REACTION_HOSTILE) and spellName == "Divine Shield" then
-		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\rage_quit.ogg", "Master")
+		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\rage_quit.ogg", "Master")
 	end
 	if eventType == "SPELL_AURA_APPLIED" and hasFlag(destFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) and (spellName == "Speed" or spellName == "Speed Up") then
-		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer\\sounds\\powerup_haste.ogg", "Master")
+		PlaySoundFile("Interface\\AddOns\\HoNAnnouncer-Remade\\sounds\\powerup_haste.ogg", "Master")
 	end
 end
