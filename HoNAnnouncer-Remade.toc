@@ -1,4 +1,4 @@
-## Interface: 80300
+## Interface: 90001
 ## Title: HoN Announcer (REMADE)
 ## Author: Keirmot (based on HoN Announcer by Slushe)
 ## Notes: Adds Heroes of Newerth sounds to various PvP related events in World of Warcraft
